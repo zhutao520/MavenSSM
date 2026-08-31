@@ -3,9 +3,8 @@ package com.web.ssm.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.web.ssm.pojo.User;
@@ -20,7 +19,7 @@ public class UserController {
 	private UserService userService;
 	
 	
-	@RequestMapping("/user")
+	@RequestMapping(value = "/getUsers", method = RequestMethod.GET)
 	public String getUserAll(){
 		
 		List<User> list = userService.getUserAll();
@@ -29,7 +28,7 @@ public class UserController {
 		}
 		String s="你好！";	
 		System.out.println(s );
-		return "/s";
+		return s;
 		
 	}
 	
